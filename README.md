@@ -15,8 +15,8 @@ GPs to model the continuously varying coefficients which describe how the effect
 ## Installing the toolbox 
 
 1) Install the GPstuff toolbox 
-* by cloning the develop branch from <https://github.com/gpstuff-dev/gpstuff> and following the installation instructions
-* or by downloading the stable version from <https://research.cs.aalto.fi/pml/software/gpstuff/> 
+  * by cloning the develop branch from <https://github.com/gpstuff-dev/gpstuff> and following the installation instructions
+  * or by downloading the stable version from <https://research.cs.aalto.fi/pml/software/gpstuff/> 
 2) Clone this “GPQTLmapping” repository and add the “code” folder to your Matlab path
 
 ## User quide (very short)
