@@ -25,10 +25,10 @@ GPs to model the continuously varying coefficients which describe how the effect
 ## User quide (very short)
 
 See demonstration program demo_mouse for instructions on how to use the package. The key functions in the package are:
-* 'gp_eQTL': A function to evaluate the energy function (un-normalized negative log marginal posterior)
-* 'gp_gQTL': A function to evaluate the gradients of the energy function with respect to the hyperparameters
-* 'gp_optimQTL': A function to optimize the hyperparameters of a Gaussian process function-valued quantitative trait model to their maximum a posterior (MAP) estimate
-* 'gp_predQTL': A function to calculate the posterior of the quantitative traits
+* `gp_eQTL`: A function to evaluate the energy function (un-normalized negative log marginal posterior)
+* `gp_gQTL`: A function to evaluate the gradients of the energy function with respect to the hyperparameters
+* `gp_optimQTL`: A function to optimize the hyperparameters of a Gaussian process function-valued quantitative trait model to their maximum a posterior (MAP) estimate
+* `gp_predQTL`: A function to calculate the posterior of the quantitative traits
 
 
 ## License 
