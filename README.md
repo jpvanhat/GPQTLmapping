@@ -5,6 +5,7 @@ Maintainer: Jarno Vanhatalo (jarno.vanhatalo@helsinki.fi)
 ## Reference
 
 If you use GPQTLmapping or otherwise refer to it, please use the following reference:
+
 Jarno Vanhatalo, Zitong Li and Mikko Sillanpää (in press). A Gaussian process model and Bayesian variable selection for mapping function-valued quantitative traits with incomplete phenotype data. Bioinformatics, 
 
 ## Introduction 
