@@ -1,4 +1,4 @@
-# GPfunctionalQTL: Gaussian process modeling and Bayesian variable selection for mapping function-valued quantitative traits with incomplete phenotype data
+# GPQTLmapping: Gaussian process modeling and Bayesian variable selection for mapping function-valued quantitative traits with incomplete phenotype data
 
 Maintainer: Jarno Vanhatalo (jarno.vanhatalo@helsinki.fi)
 
