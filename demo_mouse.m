@@ -186,7 +186,7 @@ IntegrateOverSigma = true;
 
 
 
-[setop,setin,Mlikelihood,Mposterior] = GPselection(X,Y,t,maxstep,prior_prob,correlatedResidual,IntegrateOverSigma);
+[setop,setin,Mlikelihood,Mposterior] = gp_selection(X,Y,t,maxstep,prior_prob,correlatedResidual,IntegrateOverSigma);
 
 %setop contains a set of most important markers (+covariates) which are stronly
 %associated with the functional traits.Note that in setop, the first value: 0
