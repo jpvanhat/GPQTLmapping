@@ -6,7 +6,7 @@
 %  See Readme.md for more information on installation etc.
 
 
-% Add the code foler into Matlab path
+% Add the code folder into Matlab path
 addpath ./code/
 
 % ========================================
@@ -15,7 +15,7 @@ addpath ./code/
 
 % Choose how to handle time points with NaNs 
 % * true = include time points with NaNs in the anaysis without imputation
-% * false = exclude time points with NaNs from the anaysis 
+% * false = exclude time points with NaNs from the analysis 
 includeNaNs = true;
 
 % Choose whether you want to use the same covariance function for all
@@ -143,21 +143,29 @@ gp_gQTL(gp_pak(gp),gp,tx,y, 'z', x)
 % Wald statistics
 [Ef, Varf,Waldt] = gp_predQTL(gp,tx,y,'z',x);
 figure,
-EF = reshape(Ef,16,8);
-VARF = reshape(Varf,16,8);
-for i1=1:8
-    subplot(4,2,i1),hold on
+EF = reshape(Ef,16,9);
+VARF = reshape(Varf,16,9);
+for i1=1:9
+    subplot(3,3,i1),hold on
     plot(EF(:,i1))
     plot(EF(:,i1)+2*sqrt(VARF(:,i1)),'--')
     plot(EF(:,i1)-2*sqrt(VARF(:,i1)),'--')
+    if i1==1
+        title('intercept')
+    elseif i1 == 2
+        title('covariate')
+    else
+        title(sprintf('Marker %d',apu(i1)-1))
+    end
 end
 % Wald statistics
 Waldt   
 
 % test the integration over noise sigma
-gp.visualizemarginalization = true
-[e, edata, eprior, Lpy2] = gp_eQTL(gp_pak(gp),gp,tx,y, 'z', x)
-
+if isfield(gp,'IntegrateOverSigma')
+    gp.visualizemarginalization = true
+    [e, edata, eprior, Lpy2] = gp_eQTL(gp_pak(gp),gp,tx,y, 'z', x)
+end
 
 
 %% ==================================================================
@@ -165,31 +173,26 @@ gp.visualizemarginalization = true
 % ==================================================================
 % Use a forward selection approach to search through all the SNPs to find the most important ones
 
-%genotype data without the intercept term
+% covariates + genotype data without the intercept term
 X = Xo;
 
-%Y is the phenotype data as before
+% Y is the phenotype data as before
+% t is the time points as before
 
-%time
-t = 1:16;
-
-%specify the maximum possible number of markers selected into the model to be 10
+% specify the maximum possible number of markers selected into the model
 maxstep = 10;
 
-%Specify the inclusion probability used in the model prior
+% Specify the inclusion probability used in the model prior
 prior_prob = 0.01;
 
-%correlatedResidual and IntegrateOverSigma, same as earlier
+% correlatedResidual and IntegrateOverSigma, same as earlier
 correlatedResidual = false;
-
 IntegrateOverSigma = true;
 
+[setop,setin,Mlikelihood,Mposterior] = gp_selectionQTL(X,Y,t,maxstep,prior_prob,correlatedResidual,IntegrateOverSigma);
 
-
-[setop,setin,Mlikelihood,Mposterior] = gp_selection(X,Y,t,maxstep,prior_prob,correlatedResidual,IntegrateOverSigma);
-
-%setop contains a set of most important markers (+covariates) which are stronly
-%associated with the functional traits.Note that in setop, the first value: 0
-%represents the intercept. Then we can trace back to the first part of this
-%demo to run the GP analysis only focusing on this set of markers!
+% setop contains a set of most important markers (+covariates) which are stronly
+% associated with the functional traits. Note that in setop, the first value: 0
+% represents the intercept. Then we can trace back to the first part of this
+% demo to run the GP analysis only focusing on this set of markers!
 setop
