@@ -162,8 +162,7 @@ end
 Waldt   
 
 % test the integration over noise sigma
-if isfield(gp,'IntegrateOverSigma')
-    gp.visualizemarginalization = true
+if isfield(gp,'IntegrateOverSigma') && gp.IntegrateOverSigma
     [e, edata, eprior, Lpy2] = gp_eQTL(gp_pak(gp),gp,tx,y, 'z', x)
 end
 
