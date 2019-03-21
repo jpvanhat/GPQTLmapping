@@ -30,6 +30,7 @@ See demonstration program demo_mouse for instructions on how to use the package.
 * `gp_gQTL`: A function to evaluate the gradients of the energy function with respect to the hyperparameters
 * `gp_optimQTL`: A function to optimize the hyperparameters of a Gaussian process function-valued quantitative trait model to their maximum a posterior (MAP) estimate
 * `gp_predQTL`: A function to calculate the posterior of the quantitative traits
+* `gp_selectionQTL`: A function to select important markers in GP quantitative functional trait modelling
 
 
 ## License 
